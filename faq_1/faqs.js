@@ -1,32 +1,33 @@
 //js for faq page of website...
 //Date: 11/18/2018 ----- ztm
 
-window.onload = function (){
-	var faqs = $("faqs");
-	var h2Elements = faqs.getElementsByTagName("h2");
-	
-	var h2Node;
-	for (var i = 0; i < h2Elements.length; i++){
-		h2Node = h2Elements[i];
-		
-		//attach event handler
-		h2Node.onclick = function (){
-			var h2= this; //h2 is the current object
-			
-			if (h2.getAttribute("class") == "plus") {
+window.onload = function () {
+    var faqs = $("faqs");
+    var h2Elements = faqs.getElementsByTagName("h2");
+    		    
+    var h2Node;
+    for (var i = 0; i < h2Elements.length; i++ ) {
+    	h2Node = h2Elements[i];
+    	
+    	// Attach event handler
+    	h2Node.onclick = function () {
+			var h2 = this;         // h2 is the current headingNode object
+			if (h2.hasAttribute("class")) {
+				h2.removeAttribute("class");	
+			}
+			else {
 				h2.setAttribute("class", "minus");
-			}else{
-				h2.setAttribute("class", "plus");
-			} 
-			if (h2.nextElementSibling.getAttribute("class") == "closed"){
+			}
+			if (h2.nextElementSibling.hasAttribute("class")) {
+				h2.nextElementSibling.removeAttribute("class");
+			}
+			else {
 				h2.nextElementSibling.setAttribute("class", "open");
-			}else{
-				h2.nextElementSibling.setAttribute("class", "closed");
 			}
 		}
-	}
+    }
+    $("first_link").focus();
 }
-
 var $ = function (id) {
 	return document.getElementById(id);
 }
