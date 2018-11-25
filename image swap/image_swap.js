@@ -1,3 +1,7 @@
+//image swapper js code
+//11-24-2018
+//zachary murphy
+
 $ = function (id){
 	return document.getElementById(id);
 }
